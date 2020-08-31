@@ -61,8 +61,7 @@ namespace EVentshuffle.Domain.UnitTests
             eventEntity.Vote(name, dates);
 
             eventEntity.DateOptions.Single().Date.ShouldBe(date);
-            eventEntity.DateOptions.Single().Votes.Count.ShouldBe(1);
-            eventEntity.DateOptions.Single().Votes.Count.ShouldBe(1);
+            eventEntity.DateOptions.Single().Votes.ShouldHaveSingleItem();
             eventEntity.DateOptions.Single().Votes.Single().Name.ShouldBe(name);
         }
         
@@ -77,10 +76,9 @@ namespace EVentshuffle.Domain.UnitTests
             eventEntity.Vote(name, dates);
             eventEntity.Vote(name, dates);
 
-            eventEntity.DateOptions.Count.ShouldBe(1);
+            eventEntity.DateOptions.ShouldHaveSingleItem();
             eventEntity.DateOptions.Single().Date.ShouldBe(date);
-            eventEntity.DateOptions.Single().Votes.Count.ShouldBe(1);
-            eventEntity.DateOptions.Single().Votes.Count.ShouldBe(1);
+            eventEntity.DateOptions.Single().Votes.ShouldHaveSingleItem();
             eventEntity.DateOptions.Single().Votes.Single().Name.ShouldBe(name);
         }
 
@@ -96,9 +94,9 @@ namespace EVentshuffle.Domain.UnitTests
 
             eventEntity.Vote(name, votingDates);
 
-            eventEntity.DateOptions.Count.ShouldBe(1);
+            eventEntity.DateOptions.ShouldHaveSingleItem();
             eventEntity.DateOptions.Single().Date.ShouldBe(date);
-            eventEntity.DateOptions.Single().Votes.Count.ShouldBe(0);
+            eventEntity.DateOptions.Single().Votes.ShouldBeEmpty();
         }
 
         [Fact]
@@ -116,9 +114,9 @@ namespace EVentshuffle.Domain.UnitTests
 
             var result = eventEntity.GetSuitableDateOptionsForAllVoters();
 
-            result.Count().ShouldBe(1);
+            result.ShouldHaveSingleItem();
             result.Single().Date.ShouldBe(date1);
-            result.Single().Votes.Count().ShouldBe(2);
+            result.Single().Votes.Count.ShouldBe(2);
         }
 
         [Fact]
@@ -131,7 +129,7 @@ namespace EVentshuffle.Domain.UnitTests
 
             var result = eventEntity.GetSuitableDateOptionsForAllVoters();
 
-            result.Count().ShouldBe(0);
+            result.ShouldBeEmpty();
         }
     }
 }

@@ -38,8 +38,8 @@ namespace Eventshuffle.Application.UnitTests.Features.Events.Commands.Vote
 
             var result = _handler.Handle(command, new CancellationToken());
 
-            result.Result.Votes.First().Date.ShouldBe(date);
-            result.Result.Votes.First().People.First().ShouldBe(name);
+            result.Result.Votes.Single().Date.ShouldBe(date);
+            result.Result.Votes.Single().People.Single().ShouldBe(name);
         }
 
         [Fact]
