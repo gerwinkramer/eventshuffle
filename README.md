@@ -37,15 +37,13 @@ dotnet tool install --global dotnet-ef
 
 cd src/Infrastructure
 
-dotnet user-secrets set "ConnectionStrings:EventshuffleDbContext" "Server=tcp:localhost,1433;Initial Catalog=Eventshuffle;Persist S
-ecurity Info=False;User ID=SA;Password=<YourStrong@Passw0rd>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30"
+dotnet user-secrets set "ConnectionStrings:EventshuffleDbContext" "Server=tcp:localhost,1433;Initial Catalog=Eventshuffle;Persist Security Info=False;User ID=SA;Password=<YourStrong@Passw0rd>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30"
 
 dotnet ef database update
 
 cd ../Api
 
-dotnet user-secrets set "ConnectionStrings:EventshuffleDbContext" "Server=tcp:localhost,1433;Initial Catalog=Eventshuffle;Persist S
-ecurity Info=False;User ID=SA;Password=<YourStrong@Passw0rd>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30"
+dotnet user-secrets set "ConnectionStrings:EventshuffleDbContext" "Server=tcp:localhost,1433;Initial Catalog=Eventshuffle;Persist Security Info=False;User ID=SA;Password=<YourStrong@Passw0rd>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=True;Connection Timeout=30"
 
 dotnet build
 dotnet run --launch-profile Development
