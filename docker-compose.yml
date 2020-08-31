@@ -1,0 +1,11 @@
+version: '3.3'
+
+services:
+  db:
+    image: "mcr.microsoft.com/mssql/server:2019-CU5-ubuntu-18.04"
+    container_name: 'sql-server'
+    environment:
+       SA_PASSWORD: "<YourStrong@Passw0rd>"
+       ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
